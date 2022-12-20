@@ -1,0 +1,62 @@
+﻿@model RuiMoraes.DocWebUpload.Models.Documento
+
+@{
+    ViewData["Title"] = "Adicionar";
+}
+
+<h1>Adicionar</h1>
+
+<h4>Documento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Adicionar" enctype="multipart/form-data" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+           @* <div class="form-group">
+                <label asp-for="NomeDocumento" class="control-label"></label>
+                <input asp-for="NomeDocumento" class="form-control" />
+                <span asp-validation-for="NomeDocumento" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Descricao" class="control-label"></label>
+                <input asp-for="Descricao" class="form-control" />
+                <span asp-validation-for="Descricao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Caminho" class="control-label"></label>
+                <input asp-for="Caminho" class="form-control" type="file" name="file" />
+                <span asp-validation-for="Caminho" class="text-danger"></span>
+            </div>
+           @* <div class="form-group">
+                <label asp-for="Extensao" class="control-label"></label>
+                <input asp-for="Extensao" class="form-control" />
+                <span asp-validation-for="Extensao" class="text-danger"></span>
+            </div>*@
+           @* <div class="form-group">
+                <label asp-for="DataCriado" class="control-label"></label>
+                <input asp-for="DataCriado" class="form-control" />
+                <span asp-validation-for="DataCriado" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="StatusDoc" class="control-label"></label>
+                <select asp-for="StatusDoc"
+                        class="form-control"
+                        asp-items="Html.GetEnumSelectList<EnumStatusDoc>()">
+                    <option>Selecione o Status ...</option>
+                </select>
+                <span asp-validation-for="StatusDoc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

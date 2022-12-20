@@ -1,0 +1,64 @@
+﻿@model IEnumerable<RuiMoraes.DocWebUpload.Models.Documento>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Adicionar">Adicionar Arquivo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeDocumento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Caminho)
+            </th>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCriado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusDoc)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NomeDocumento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Caminho)
+
+                </td>
+                <td>@Html.ActionLink("Download", "ArquivoDownload", new { nomeArquivo = @item.Caminho })</td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCriado)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusDoc)
+                </td>
+                <td>
+                    <a asp-action="Editar" asp-route-id="@item.Id">Editar</a> |
+                    <a asp-action="Detalhes" asp-route-id="@item.Id">Detalhes</a> |
+                    <a asp-action="Excluir" asp-route-id="@item.Id">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
