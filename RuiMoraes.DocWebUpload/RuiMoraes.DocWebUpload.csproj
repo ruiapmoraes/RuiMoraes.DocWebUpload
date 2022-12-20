@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="arquivos\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\arquivos\" />
   </ItemGroup>

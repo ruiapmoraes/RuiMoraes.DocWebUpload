@@ -1,0 +1,5 @@
+﻿Instruções de Execução.
+
+1 - Requisitos: .NET 7
+2 - Exibir o Package manager Console e executar o comando "update-database". 
+3 - Vai ser criado uma base de dados SQL Server interno do Visual Studio 2022 e bastará executar a aplicação.
